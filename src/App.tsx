@@ -59,7 +59,7 @@ const Hero = () => (
           <span className="text-indigo-600">محرك نمو حقيقي</span>
         </h1>
         <p className="max-w-2xl mx-auto text-xl text-gray-600 mb-10 leading-relaxed">
-          فرصة استثنائية للمنشآت الصغيرة والمتوسطة في السوق السعودي لبناء علامة تجارية قوية من خلال محتوى فيديو احترافي واستراتيجيات تسويقية ذكية.
+          فرصة استثنائية للمنشآت الصغيرة والمتوسطة في السوق السعودي لبناء علامة تجارية قوية من خلال محتوى احترافي واستراتيجيات تسويقية ذكية.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <button className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-full font-bold text-lg hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 flex items-center justify-center gap-2 group">
