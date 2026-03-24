@@ -26,7 +26,7 @@ const Navbar = () => (
           <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
             <TrendingUp className="text-white w-6 h-6" />
           </div>
-          <span className="text-xl font-bold text-gray-900 font-sans tracking-tight">وكالة تسويق المحتوى</span>
+          <span className="text-xl font-bold text-gray-900 font-sans tracking-tight">رُواة للتسويق الالكتروني</span>
         </div>
         <div className="hidden md:flex items-center gap-8">
           <a href="#why-us" className="text-gray-600 hover:text-indigo-600 transition-colors font-medium">لماذا نحن؟</a>
@@ -273,7 +273,7 @@ const Footer = () => (
           <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
             <TrendingUp className="text-white w-5 h-5" />
           </div>
-          <span className="text-lg font-bold text-gray-900">وكالة تسويق المحتوى</span>
+          <span className="text-lg font-bold text-gray-900">رُواة للتسويق الالكتروني</span>
         </div>
         <p className="text-gray-500 text-sm">
           © 2026 جميع الحقوق محفوظة. تقديم: الوليد حافظ
