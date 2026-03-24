@@ -22,10 +22,8 @@ const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex justify-between h-20 items-center">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center">
-            <TrendingUp className="text-white w-6 h-6" />
-          </div>
+        <div className="flex items-center gap-3">
+          <img src="/logo.png" alt="رُواة للتسويق الالكتروني" className="w-12 h-12 object-contain" referrerPolicy="no-referrer" />
           <span className="text-xl font-bold text-gray-900 font-sans tracking-tight">رُواة للتسويق الالكتروني</span>
         </div>
         <div className="hidden md:flex items-center gap-8">
@@ -269,10 +267,8 @@ const Footer = () => (
   <footer className="py-12 bg-white border-t border-gray-100">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-            <TrendingUp className="text-white w-5 h-5" />
-          </div>
+        <div className="flex items-center gap-3">
+          <img src="/logo.png" alt="رُواة للتسويق الالكتروني" className="w-10 h-10 object-contain" referrerPolicy="no-referrer" />
           <span className="text-lg font-bold text-gray-900">رُواة للتسويق الالكتروني</span>
         </div>
         <p className="text-gray-500 text-sm">
