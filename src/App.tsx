@@ -14,12 +14,28 @@ import {
   Users, 
   TrendingUp, 
   Zap,
-  MessageSquare
+  MessageSquare,
+  Instagram,
+  Linkedin
 } from 'lucide-react';
 import { motion } from 'motion/react';
 
 const WHATSAPP_URL = "https://wa.me/966543449227";
+const INSTAGRAM_URL = "https://www.instagram.com/ruwaah.sa/";
+const TIKTOK_URL = "https://www.tiktok.com/@ruwaah.sa";
+const LINKEDIN_URL = "https://www.linkedin.com/company/ruwaah-agency/";
 const LOGO_URL = "https://lh3.googleusercontent.com/d/1gCXIpq3pVEiX5iuYvLAUcOmSaxe0pUmi";
+
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    className={className}
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.6-4.12-1.31a6.33 6.33 0 0 1-1.87-1.5c-.02 3.1-.03 6.2-.03 9.3 0 1.2-.2 2.44-.88 3.41-.7 1.02-1.74 1.74-2.93 2.1-.88.28-1.82.38-2.73.32-1.53-.1-3.04-.74-4.13-1.83-1.1-1.1-1.74-2.6-1.83-4.13-.12-2.13.7-4.3 2.2-5.83 1.3-1.3 3.14-2.1 5-2.11.12 0 .24 0 .36.01v4.13a3.5 3.5 0 0 0-1.39.4c-.93.48-1.6 1.46-1.7 2.51-.11 1.13.39 2.26 1.25 3.01.82.73 2.01.97 3.03.63 1.02-.34 1.85-1.21 2.13-2.23.1-.38.15-.78.15-1.17V.02z"/>
+  </svg>
+);
 
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
@@ -34,6 +50,7 @@ const Navbar = () => (
           <a href="#services" className="text-gray-600 hover:text-indigo-600 transition-colors font-medium">خدماتنا</a>
           <a href="#partners" className="text-gray-600 hover:text-indigo-600 transition-colors font-medium">عملائنا</a>
           <a href="#process" className="text-gray-600 hover:text-indigo-600 transition-colors font-medium">خطوات العمل</a>
+          
           <a 
             href={WHATSAPP_URL}
             target="_blank"
@@ -353,9 +370,15 @@ const Footer = () => (
           © 2026 جميع الحقوق محفوظة.
         </p>
         <div className="flex gap-6">
-          <a href="#" className="text-gray-400 hover:text-indigo-600 transition-colors">تويتر</a>
-          <a href="#" className="text-gray-400 hover:text-indigo-600 transition-colors">لينكد إن</a>
-          <a href="#" className="text-gray-400 hover:text-indigo-600 transition-colors">إنستقرام</a>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-600 transition-colors">
+            <Instagram className="w-6 h-6" />
+          </a>
+          <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black transition-colors">
+            <TikTokIcon className="w-6 h-6" />
+          </a>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-700 transition-colors">
+            <Linkedin className="w-6 h-6" />
+          </a>
         </div>
       </div>
     </div>
