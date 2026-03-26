@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ruwaah.co/sitemap.xml
