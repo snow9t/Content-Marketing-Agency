@@ -21,7 +21,7 @@ import {
 import { motion } from 'motion/react';
 
 const WHATSAPP_URL = "https://wa.me/966543449227";
-const INSTAGRAM_URL = "https://www.instagram.com/ruwaah.sa/";
+const INSTAGRAM_URL = "https://www.instagram.com/ruwaah.co/";
 const TIKTOK_URL = "https://www.tiktok.com/@ruwaah.sa";
 const LINKEDIN_URL = "https://www.linkedin.com/company/ruwaah-agency/";
 const LOGO_URL = "https://lh3.googleusercontent.com/d/1gCXIpq3pVEiX5iuYvLAUcOmSaxe0pUmi";
