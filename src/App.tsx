@@ -20,6 +20,12 @@ import {
 } from 'lucide-react';
 import { motion } from 'motion/react';
 
+declare global {
+  interface Window {
+    gtag_report_conversion: (url?: string) => boolean;
+  }
+}
+
 const WHATSAPP_URL = "https://wa.me/966543449227";
 const INSTAGRAM_URL = "https://www.instagram.com/ruwaah.co/";
 const TIKTOK_URL = "https://www.tiktok.com/@ruwaah.sa";
@@ -55,6 +61,7 @@ const Navbar = () => (
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => window.gtag_report_conversion?.(WHATSAPP_URL)}
             className="bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-all shadow-md shadow-blue-200"
           >
             ابدأ الآن
@@ -92,6 +99,7 @@ const Hero = () => (
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => window.gtag_report_conversion?.(WHATSAPP_URL)}
             className="w-full sm:w-auto px-10 py-4 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-200 flex items-center justify-center gap-2 group"
           >
             احجز استشارتك المجانية
@@ -286,6 +294,7 @@ const Process = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => window.gtag_report_conversion?.(WHATSAPP_URL)}
             className="inline-block px-10 py-5 bg-emerald-500 text-white rounded-full font-bold text-xl hover:bg-emerald-600 transition-all shadow-2xl shadow-emerald-900/20"
           >
             احجز جلستك الآن - مجاناً
@@ -338,6 +347,7 @@ const FloatingWhatsApp = () => (
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => window.gtag_report_conversion?.(WHATSAPP_URL)}
       className="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform pointer-events-auto group"
     >
       <svg 
