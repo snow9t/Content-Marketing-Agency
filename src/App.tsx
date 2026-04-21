@@ -16,7 +16,9 @@ import {
   Zap,
   MessageSquare,
   Instagram,
-  Linkedin
+  Linkedin,
+  MapPin,
+  Mail
 } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -369,26 +371,82 @@ const FloatingWhatsApp = () => (
 );
 
 const Footer = () => (
-  <footer className="py-12 bg-white border-t border-gray-100">
+  <footer className="pt-20 pb-10 bg-white border-t border-gray-100">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex items-center gap-3">
-          <img src={LOGO_URL} alt="رُواة للتسويق الرقمي" className="w-10 h-10 object-contain" referrerPolicy="no-referrer" />
-          <span className="text-lg font-bold text-gray-900">رُواة للتسويق الرقمي</span>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        {/* Branch 1: Brand Identity */}
+        <div className="space-y-6 text-center md:text-right">
+          <div className="flex items-center justify-center md:justify-start gap-3">
+            <img src={LOGO_URL} alt="رُواة للنمو" className="w-12 h-12 object-contain" referrerPolicy="no-referrer" />
+            <span className="text-2xl font-black text-gray-900 tracking-tight">رُواة</span>
+          </div>
+          <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+            وكالة متخصصة في صناعة المحتوى الرقمي المبتكر للمنشآت في السعودية. نؤمن بأن كل علامة تجارية لديها قصة تستحق أن تروى بشكل احترافي.
+          </p>
         </div>
-        <p className="text-gray-500 text-sm">
-          © 2026 جميع الحقوق محفوظة.
+
+        {/* Branch 2: Sitemap */}
+        <div className="space-y-6 text-center md:text-right">
+          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-widest">تصفح الموقع</h3>
+          <ul className="space-y-4">
+            <li><a href="#why-us" className="text-gray-500 hover:text-blue-600 transition-colors text-sm font-medium">لماذا نحن؟</a></li>
+            <li><a href="#services" className="text-gray-500 hover:text-blue-600 transition-colors text-sm font-medium">خدماتنا</a></li>
+            <li><a href="#partners" className="text-gray-500 hover:text-blue-600 transition-colors text-sm font-medium">عملائنا</a></li>
+            <li><a href="#process" className="text-gray-500 hover:text-blue-600 transition-colors text-sm font-medium">خطوات العمل</a></li>
+          </ul>
+        </div>
+
+        {/* Branch 3: Contact & Location */}
+        <div className="space-y-6 text-center md:text-right">
+          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-widest">تواصل معنا</h3>
+          <ul className="space-y-4">
+            <li className="flex flex-col items-center md:items-start gap-2 group">
+              <div className="flex items-center gap-2 text-blue-600">
+                <MapPin className="w-5 h-5 flex-shrink-0" />
+                <span className="font-bold text-xs uppercase tracking-wider">الموقع</span>
+              </div>
+              <span className="text-gray-500 text-sm leading-relaxed">
+                طريق صلاح الدين الأيوبي الفرعي، <br />
+                الصفا، الرياض
+              </span>
+            </li>
+            <li className="flex flex-col items-center md:items-start gap-2 group">
+              <div className="flex items-center gap-2 text-blue-600">
+                <Mail className="w-5 h-5 flex-shrink-0" />
+                <span className="font-bold text-xs uppercase tracking-wider">البريد الإلكتروني</span>
+              </div>
+              <a href="mailto:info@ruwaah.co" className="text-gray-500 hover:text-blue-600 transition-colors text-sm font-medium">
+                info@ruwaah.co
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Branch 4: Social & Community */}
+        <div className="space-y-6 text-center md:text-right">
+          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-widest">تابع رحلتنا</h3>
+          <div className="flex justify-center md:justify-start gap-3">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center bg-gray-50 rounded-2xl text-gray-400 hover:text-white hover:bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 transition-all shadow-sm group">
+              <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            </a>
+            <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center bg-gray-50 rounded-2xl text-gray-400 hover:text-white hover:bg-black transition-all shadow-sm group">
+              <TikTokIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            </a>
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center bg-gray-50 rounded-2xl text-gray-400 hover:text-white hover:bg-[#0077b5] transition-all shadow-sm group">
+              <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            </a>
+          </div>
+          <p className="text-xs text-gray-400 font-medium">تفاعل معنا على منصات التواصل الاجتماعي.</p>
+        </div>
+      </div>
+
+      {/* Final Copyright Bar */}
+      <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-right">
+        <p className="text-gray-400 text-xs font-semibold tracking-wide">
+          © 2026 رُواة للتسويق الرقمي. جميع الحقوق محفوظة.
         </p>
-        <div className="flex gap-6">
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-600 transition-colors">
-            <Instagram className="w-6 h-6" />
-          </a>
-          <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black transition-colors">
-            <TikTokIcon className="w-6 h-6" />
-          </a>
-          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-700 transition-colors">
-            <Linkedin className="w-6 h-6" />
-          </a>
+        <div className="flex items-center gap-6">
+           <span className="text-[10px] text-gray-300 uppercase tracking-[0.3em] font-bold">Pride of Saudi Digital Agencies</span>
         </div>
       </div>
     </div>
