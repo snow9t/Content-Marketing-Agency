@@ -18,9 +18,13 @@ import {
   Instagram,
   Linkedin,
   MapPin,
-  Mail
+  Mail,
+  ExternalLink,
+  Eye,
+  Play,
+  X
 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
 declare global {
   interface Window {
@@ -56,6 +60,7 @@ const Navbar = () => (
         <div className="hidden md:flex items-center gap-8">
           <a href="#why-us" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">لماذا نحن؟</a>
           <a href="#services" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">خدماتنا</a>
+          <a href="#portfolio" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">أعمالنا</a>
           <a href="#partners" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">عملائنا</a>
           <a href="#process" className="text-gray-600 hover:text-blue-600 transition-colors font-medium">خطوات العمل</a>
           
@@ -196,7 +201,7 @@ const Services = () => {
     },
     {
       title: "إنتاج المحتوى الاحترافي",
-      description: "نحول 'الريلز' إلى أداة إعلانية جبارة. من كتابة السيناريوهات الجذابة إلى التصوير والمونتاج عالي الجودة، نصنع محتوى يوقف التمرير ويحفز التفاعل.",
+      description: "نصنع محتوى رقمياً متكاملاً يخدم أهدافك؛ من التصاميم الإبداعية والمواقع الإلكترونية الجذابة إلى فيديوهات 'الريلز' والموشن جرافيك، نقدم حلولاً بصرية تمنحك حضوراً قوياً وتضمن أعلى مستويات التفاعل.",
       icon: <Video className="w-8 h-8" />,
       color: "bg-sky-50 text-sky-600"
     },
@@ -303,6 +308,166 @@ const Process = () => {
           </a>
         </div>
       </div>
+    </section>
+  );
+};
+
+const Portfolio = () => {
+  const [selectedImage, setSelectedImage] = React.useState<string | null>(null);
+
+  const projects = [
+    {
+      title: "التصاميم الإعلانية والجريد",
+      category: "صناعة محتوى",
+      image: "https://lh3.googleusercontent.com/d/1BCx3RlF6YdhUQtV7jsaa9v3ToKruO8H8",
+      description: "تصميم جريد احترافي يبرز الهوية البصرية للعلامة التجارية عبر حسابات التواصل الاجتماعي.",
+      type: "image"
+    },
+    {
+      title: "موشن جرافيك إبداعي",
+      category: "إنتاج مرئي",
+      image: "https://lh3.googleusercontent.com/d/1bZMMrOmuhrhcWyf5szvnjOjR2NJjX8dV",
+      description: "فيديو موشن جرافيك يروي قصة العلامة التجارية بأسلوب عصري وجذاب.",
+      type: "video",
+      link: "https://drive.google.com/file/d/1bZMMrOmuhrhcWyf5szvnjOjR2NJjX8dV/view"
+    },
+    {
+      title: "استراتيجيات المحتوى المرئي",
+      category: "إدارة حسابات",
+      image: "https://lh3.googleusercontent.com/d/1bZxEV5QrIwQr_wuHsUChSPOfMN5YGZ1q",
+      description: "تنظيم وتنسيق المحتوى الرقمي لضمان تجربة مستخدم متسقة وجذابة.",
+      type: "image"
+    },
+    {
+      title: "تطوير المواقع الإلكترونية",
+      category: "حلول تقنية",
+      image: "https://lh3.googleusercontent.com/d/1qocGP6uH3glPIgdP7tCQqIJp0-46p0h4",
+      description: "تصميم وتطوير واجهات المستخدم لموقع أجيال، مع التركيز على سهولة الاستخدام.",
+      type: "link",
+      link: "https://ajyal.com.sa/"
+    }
+  ];
+
+  return (
+    <section id="portfolio" className="py-24 bg-gray-50/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="max-w-2xl text-center md:text-right">
+            <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-widest text-blue-600 uppercase bg-blue-50 rounded-lg">
+              قصص نجاح من الميدان
+            </span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">معرض أعمالنا</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
+              نفخر بمشاركة مجموعة مختارة من أعمالنا التي تعكس شغفنا بالإبداع والتزامنا بتحقيق أفضل النتائج لعملائنا.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                  {project.type === 'link' ? (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 transform scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 shadow-xl"
+                    >
+                      <ExternalLink className="w-6 h-6" />
+                    </a>
+                  ) : project.type === 'video' ? (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 transform scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 shadow-xl"
+                    >
+                      <Play className="w-6 h-6 fill-current ml-1" />
+                    </a>
+                  ) : (
+                    <button 
+                      onClick={() => setSelectedImage(project.image)}
+                      className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 transform scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 shadow-xl cursor-pointer"
+                    >
+                      <Eye className="w-6 h-6" />
+                    </button>
+                  )}
+                </div>
+                <div className="absolute top-6 left-6 flex gap-2">
+                  <span className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-xl text-xs font-bold text-gray-900 shadow-sm">
+                    {project.category}
+                  </span>
+                </div>
+              </div>
+              <div className="p-8 text-center md:text-right">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  {project.description}
+                </p>
+                {project.type === 'link' && (
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:gap-3 transition-all"
+                  >
+                    زيارة الموقع الآن
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
+          >
+            <motion.button
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0 }}
+              className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-colors border border-white/20"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X className="w-6 h-6" />
+            </motion.button>
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              src={selectedImage}
+              alt="Project preview"
+              className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+              referrerPolicy="no-referrer"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
@@ -461,6 +626,7 @@ export default function App() {
         <Hero />
         <WhyUs />
         <Services />
+        <Portfolio />
         <Process />
         <Partners />
       </main>
