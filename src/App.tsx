@@ -373,40 +373,44 @@ const Portfolio = () => {
               transition={{ delay: index * 0.1 }}
               className="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+              <div 
+                className="relative aspect-[16/10] overflow-hidden bg-gray-100 cursor-pointer"
+                onClick={() => {
+                  if (project.type === 'link') {
+                    window.open(project.link, '_blank', 'noopener,noreferrer');
+                  } else if (project.type === 'video') {
+                    window.open(project.link, '_blank', 'noopener,noreferrer');
+                  } else {
+                    setSelectedImage(project.image);
+                  }
+                }}
+              >
                 <img 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center pointer-events-none md:pointer-events-auto">
                   {project.type === 'link' ? (
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 transform scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 shadow-xl"
-                    >
+                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 transform scale-0 md:group-hover:scale-100 transition-transform duration-500 delay-100 shadow-xl">
                       <ExternalLink className="w-6 h-6" />
-                    </a>
+                    </div>
                   ) : project.type === 'video' ? (
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 transform scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 shadow-xl"
-                    >
+                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 transform scale-0 md:group-hover:scale-100 transition-transform duration-500 delay-100 shadow-xl">
                       <Play className="w-6 h-6 fill-current ml-1" />
-                    </a>
+                    </div>
                   ) : (
-                    <button 
-                      onClick={() => setSelectedImage(project.image)}
-                      className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 transform scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 shadow-xl cursor-pointer"
-                    >
+                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-blue-600 transform scale-0 md:group-hover:scale-100 transition-transform duration-500 delay-100 shadow-xl">
                       <Eye className="w-6 h-6" />
-                    </button>
+                    </div>
                   )}
+                </div>
+                {/* Mobile Info Overlay (Visible only on touch) */}
+                <div className="absolute inset-0 flex items-center justify-center md:hidden bg-black/5 active:bg-black/20 transition-colors">
+                  <div className="bg-white/90 backdrop-blur-md p-3 rounded-full shadow-lg">
+                    {project.type === 'link' ? <ExternalLink className="w-6 h-6 text-blue-600" /> : project.type === 'video' ? <Play className="w-6 h-6 text-blue-600" /> : <Eye className="w-6 h-6 text-blue-600" />}
+                  </div>
                 </div>
                 <div className="absolute top-6 left-6 flex gap-2">
                   <span className="px-4 py-2 bg-white/90 backdrop-blur-md rounded-xl text-xs font-bold text-gray-900 shadow-sm">
